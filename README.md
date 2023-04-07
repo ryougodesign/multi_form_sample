@@ -14,7 +14,7 @@ python generate_secret_key.py
 2. pythonでgenerate_secret_key.pyを実行して、SECRET_KEYを生成します
 SECRET_KEYはコピーしておいてください
 
-docker_project/settings.py
+app_project/settings.py
 ```python
 SECRET_KEY = 'ここに生成したSECRET_KEYを張り付けてください'
 ```
