@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>商品登録完了</h1>
+<p>商品の登録が完了しました！</p>
+<section>
+  <h2>商品情報登録</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>商品名</th>
+        <th>商品詳細</th>
+        <th>商品金額</th>
+        <th>登録日時</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in products %}
+      <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.detail }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.created_at }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>商品管理者登録</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>担当者名</th>
+        <th>メールアドレス</th>
+        <th>電話番号</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product_manager in product_managers.values %}
+      <tr>
+        <td>{{ product_manager.name }}</td>
+        <td>{{ product_manager.email }}</td>
+        <td>{{ product_manager.phone_number }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

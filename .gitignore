@@ -1,0 +1,12 @@
+*.log
+*.env
+*.pyc
+*.swp
+.DS_Store
+__pycache__
+csscomb.json
+settings.json
+db.sqlite3
+Makefile
+media
+tmp

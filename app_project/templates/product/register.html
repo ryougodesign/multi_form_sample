@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% comment %} フォームをまとめて表示したい場合 {% endcomment %}
+{% block main %}
+<h1>フォーム</h1>
+<form action="" method="POST">
+  {% csrf_token %}
+  {% for field in form %}
+  <div class="form-group">
+    {{ field.label }}
+    {{ field }}
+  </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-primary">登録する</button>
+</form>
+{% endblock %}
+
+{% comment %} フォーム別に表示したい場合 {% endcomment %}
+{% comment %} {% block main %}
+<h1>フォーム</h1>
+<form action="" method="POST">
+  {% csrf_token %}
+  <div class="form1 mb-5">
+    <h2>商品情報登録フォーム</h2>
+    {% for field in form.product_form %}
+    <div class="form-group">
+      {{ field.label }}
+      {{ field }}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="form2">
+    <h2>商品管理者登録フォーム</h2>
+    {% for field in form.product_manager_form %}
+    <div class="form-group">
+      {{ field.label }}
+      {{ field }}
+    </div>
+    {% endfor %}
+  </div>
+  <button type="submit" class="btn btn-primary">登録する</button>
+</form>
+{% endblock %} {% endcomment %}
