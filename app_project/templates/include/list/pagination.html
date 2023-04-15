@@ -1,0 +1,27 @@
+{% if page_obj.paginator.num_pages > 1 %}
+<ul class="pager">
+  {% if page_obj.has_previous %}
+  <li class="prev none">
+    <a
+      href="?page={{ page_obj.previous_page_number }}{% if search_word.items %}{% for key, value in search_word.items %}&{{key}}={{ value }}{% endfor %}{% endif %}">
+    </a>
+  </li>
+  {% endif %}
+  {% for n in page_obj.paginator.page_range %}
+  {% if page_obj.number == n %}
+  <li class="active"><span>{{ n }}</span></li>
+  {% elif n > page_obj.number|add:'-10' and n < page_obj.number|add:'10' %}
+  <li><a
+      href="?page={{ n }}{% if search_word.items %}{% for key, value in search_word.items %}&{{key}}={{ value }}{% endfor %}{% endif %}"><span>{{ n }}</span></a>
+  </li>
+  {% endif %}
+  {% endfor %}
+  {% if page_obj.has_next %}
+  <li class="next none">
+    <a
+      href="?page={{ page_obj.next_page_number }}{% if search_word.items %}{% for key, value in search_word.items %}&{{key}}={{ value }}{% endfor %}{% endif %}">
+    </a>
+  </li>
+  {% endif %}
+</ul>
+{% endif %}

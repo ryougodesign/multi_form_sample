@@ -1,9 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+
 # 商品情報登録モデル
 class Product(models.Model):
-
     # 商品名
     name = models.CharField(verbose_name=_("商品名"), max_length=64)
 
@@ -19,7 +19,6 @@ class Product(models.Model):
 
 # 商品管理者登録モデル
 class ProductManager(models.Model):
-
     # 担当者名
     name = models.CharField(verbose_name=_("担当者名"), max_length=32)
 

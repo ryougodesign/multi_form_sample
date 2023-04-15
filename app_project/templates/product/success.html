@@ -3,8 +3,10 @@
 {% block main %}
 <h1>商品登録完了</h1>
 <p>商品の登録が完了しました！</p>
+
+<!-- 1つ目のモデルを表示 -->
 <section>
-  <h2>商品情報登録</h2>
+  <h2>商品情報登録一覧</h2>
   <table class="table">
     <thead>
       <tr>
@@ -15,20 +17,24 @@
       </tr>
     </thead>
     <tbody>
-      {% for product in products %}
+      <!-- 1つ目のモデルの表示処理 -->
+      {% for lo in list_objects %}
       <tr>
-        <td>{{ product.name }}</td>
-        <td>{{ product.detail }}</td>
-        <td>{{ product.price }}</td>
-        <td>{{ product.created_at }}</td>
+        <td>{{ lo.name }}</td>
+        <td>{{ lo.detail }}</td>
+        <td>{{ lo.price }}</td>
+        <td>{{ lo.created_at }}</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
+  <!-- ページネーションを表示 -->
+  {% include "include/list/pagination.html" with page_obj=page_obj search_word=search_word %}
 </section>
 
+<!-- 2つ目のモデルを表示 -->
 <section>
-  <h2>商品管理者登録</h2>
+  <h2>商品管理者登録一覧</h2>
   <table class="table">
     <thead>
       <tr>
@@ -38,7 +44,8 @@
       </tr>
     </thead>
     <tbody>
-      {% for product_manager in product_managers.values %}
+      <!-- 2つ目のモデルの表示処理 -->
+      {% for product_manager in product_managers %}
       <tr>
         <td>{{ product_manager.name }}</td>
         <td>{{ product_manager.email }}</td>
